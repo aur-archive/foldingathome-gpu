@@ -1,0 +1,21 @@
+post_install() {
+	cat <<EOF
+
+  > This package allows you independently control which GPUs are used for
+  > Folding@Home via systemd.  To start the Folding@Home GPU client on GPUs
+  > 0 and 1:
+  > # systemctl start foldingathome-gpu@0
+  > # systemctl start foldingathome-gpu@1
+  > 
+  > To start the Folding@Home GPU client for GPUs 0 and 1 on boot:
+  > # systemctl enable foldingathome-gpu@0
+  > # systemctl enable foldingathome-gpu@1
+	>
+  > By default, the Folding@Home GPU client will fold for the Arch Linux
+  > team as user Anonymous.  The configuration file is located at
+  > "/etc/foldingathome-gpu/client.cfg" and is used for every Folding@Home
+  > GPU instance.  To configure the Folding@Home GPU client:
+  > # foldingathome-gpu-wrapper -Cc /etc/foldingathome-gpu/client.cfg
+
+EOF
+}
